@@ -1,0 +1,86 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+//class
+
+class Node
+{
+    public:
+    int key;
+    Node*next;
+};
+
+//creating newnode
+
+Node*newnode(int data)
+{
+    Node*n=new Node();
+    n->key=data;
+    n->next=NULL;
+    return n;
+}
+
+//inserting at first
+
+Node*push(int data,Node*head)
+{
+    Node*nn=newnode(data);
+    if(head==NULL)
+    {
+        head=nn;
+    }
+    else
+    {
+        nn->next=head;
+        head=nn;
+    }
+    return head;
+}
+
+
+//delete at first
+
+Node*pop(Node*head)
+{
+    if(head==NULL)
+    {
+        cout<<"Empty"<<endl;
+    }
+    else
+    {
+        head=head->next;
+    }
+    return head;
+}
+
+//display function
+//To display the linked list
+
+Node*display(Node*head)
+{
+    Node*temp=head;
+    while(temp!=NULL)
+    {
+        cout<<temp->key<<endl;
+        temp=temp->next;
+    }
+    cout<<"NULL";
+    cout<<endl;
+    return head;
+}
+
+//Main function
+
+int main()
+{
+    Node*head=NULL;
+    head=push(20,head);
+    head=push(10,head);
+    head=push(50,head);
+    head=push(30,head);
+    head=push(15,head);
+    head=push(200,head);
+    head=push(100,head);
+    head=pop(head);
+    head=display(head);
+}
